@@ -1,0 +1,18 @@
+﻿{
+  "ConnectionStrings": {
+    "DutchConnectionString": "server=JSCHURT;Database=DutchTreatDb;Integrated Security=true;MultipleActiveResultSets=true;"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.EntityFramework": "Information",
+      "Microsoft": "Warning"
+    }
+  },
+  "Tokens": {
+    "Key": "Pode ser qualquer coisa",
+    "Issuer": "localhost",
+    "Audience":  "users"
+  }
+
+}
