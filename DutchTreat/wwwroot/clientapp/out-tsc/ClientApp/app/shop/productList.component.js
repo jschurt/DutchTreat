@@ -1,30 +1,32 @@
 import * as tslib_1 from "tslib";
 //Tornando um componente angular para que possamos usar em nossas paginas
 import { Component } from "@angular/core";
-let ProductList = class ProductList {
-    constructor() {
-        this.products = [
-            {
-                title: "First Product",
-                price: 19.99
-            },
-            {
-                title: "Second Product",
-                price: 9.99
-            },
-            {
-                title: "Third Product",
-                price: 14.99
-            }
-        ];
+var ProductList = /** @class */ (function () {
+    //injetando DataService
+    function ProductList(data) {
+        this.data = data;
+        this.products = [];
     }
-};
-ProductList = tslib_1.__decorate([
-    Component({
-        selector: "product-list",
-        templateUrl: "productList.component.html",
-        styleUrls: []
-    })
-], ProductList);
+    ProductList.prototype.ngOnInit = function () {
+        var _this = this;
+        this.data.loadProducts()
+            .subscribe(function (success) {
+            if (success) {
+                _this.products = _this.data.products;
+            }
+        });
+    };
+    ProductList.prototype.addProduct = function (product) {
+        this.data.AddToOrder(product);
+    };
+    ProductList = tslib_1.__decorate([
+        Component({
+            selector: "product-list",
+            templateUrl: "productList.component.html",
+            styleUrls: ["productList.component.css"]
+        })
+    ], ProductList);
+    return ProductList;
+}());
 export { ProductList };
 //# sourceMappingURL=productList.component.js.map

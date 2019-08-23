@@ -1,17 +1,22 @@
 //export
-class StoreCustomer {
-    constructor(firstName, lastName) {
+var StoreCustomer = /** @class */ (function () {
+    function StoreCustomer(firstName, lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.visits = 0;
     }
-    showName() {
+    StoreCustomer.prototype.showName = function () {
         alert(this.firstName + " " + this.lastName);
-    }
-    returningFunction(param) {
+    };
+    StoreCustomer.prototype.returningFunction = function (param) {
         return param;
-    }
-    set name(val) { this._name = val; }
-    get name() { return this._name; }
-}
+    };
+    Object.defineProperty(StoreCustomer.prototype, "name", {
+        get: function () { return this._name; },
+        set: function (val) { this._name = val; },
+        enumerable: true,
+        configurable: true
+    });
+    return StoreCustomer;
+}());
 //# sourceMappingURL=storecustomer.js.map
